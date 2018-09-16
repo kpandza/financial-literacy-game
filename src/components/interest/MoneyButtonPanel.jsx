@@ -2,17 +2,27 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import './interest.css';
+import hammer from '../../public/hammer.png'
+import five_cents from '../../public/5-cents.png'
+import ten_cents from '../../public/10-cents.png'
+import tfive_cents from '../../public/25-cents.png'
+import loonie from '../../public/1-dollar.png'
+import toonie from '../../public/2-dollars.png'
+import five_dollars from '../../public/5-dollars.png'
+import ten_dollars from '../../public/10-dollars.png'
+import twenty from '../../public/20-dollars.png'
+import fifty from '../../public/50-dollars.png'
 
 const MoneyIntervals = [
-    { amount: 0.05, display: "5c" },
-    { amount: 0.1, display: "10c" },
-    { amount: 0.25, display: "25c" },
-    { amount: 1, display: "$1" },
-    { amount: 2, display: "$2" },
-    { amount: 5, display: "$5" },
-    { amount: 10, display: "5c" },
-    { amount: 20, display: "5c" },
-    { amount: 50, display: "5c" },
+    { amount: 0.05, display: <img id="money" src={five_cents}></img> },
+    { amount: 0.1, display: <img id="money" src={ten_cents}></img> },
+    { amount: 0.25, display: <img id="money" src={tfive_cents}></img> },
+    { amount: 1, display: <img id="money" src={loonie}></img> },
+    { amount: 2, display: <img id="money" src={toonie}></img> },
+    { amount: 5, display: <img id="money" src={five_dollars}></img> },
+    { amount: 10, display: <img id="money" src={ten_dollars}></img> },
+    { amount: 20, display: <img id="money" src={twenty}></img> },
+    { amount: 50, display: <img id="money" src={fifty}></img> },
 ];
 
 export function getMoneyIndexValue(index) {
@@ -70,7 +80,7 @@ export class MoneyButtonPanel extends React.Component {
                     active={this.props.isHammerEnabled}
                     onClick={this.handleHammerClick}
                 >
-                    HAMMER
+                    <img id="hammerImg" src={hammer}></img>
                         </Button>
             </div>
         );

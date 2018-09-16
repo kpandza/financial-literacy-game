@@ -1,6 +1,6 @@
 import React from 'react';
 import './LandingPage.css';
-import Logo from './kid-koin-logo.png';
+import Logo from './common-cents-logo.png';
 import { Link } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 

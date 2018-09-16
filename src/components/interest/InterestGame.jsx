@@ -55,14 +55,6 @@ export class InterestGame extends React.Component {
 
                 <Link to="/dashboard"><span className="time-label">Day: {this.props.time + 1}</span></Link>
 
-                <MoneyButtonPanel
-                    availableFunds={this.props.availableFunds}
-                    selectedMoneyIndex={this.state.selectedMoneyIndex}
-                    setSelectedMoneyIndex={this.setSelectedMoneyIndex}
-                    isHammerEnabled={this.state.isHammerEnabled}
-                    setHammerStatus={this.setHammerStatus}
-                />
-
                 <PiggyBankPanel
                     piggyBanks={this.props.piggyBanks}
                     updatePiggyBank={this.props.updatePiggyBank}
@@ -70,6 +62,14 @@ export class InterestGame extends React.Component {
                     availableFunds={this.props.availableFunds}
                     setAvailableFunds={this.props.setAvailableFunds}
                     isHammerEnabled={this.state.isHammerEnabled}
+                />
+
+                <MoneyButtonPanel
+                    availableFunds={this.props.availableFunds}
+                    selectedMoneyIndex={this.state.selectedMoneyIndex}
+                    setSelectedMoneyIndex={this.setSelectedMoneyIndex}
+                    isHammerEnabled={this.state.isHammerEnabled}
+                    setHammerStatus={this.setHammerStatus}
                 />
 
             </div>

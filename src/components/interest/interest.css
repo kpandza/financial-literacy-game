@@ -3,10 +3,10 @@
 }
 
 .interest-header {
-  background-color: #222;
+  background-color: #D1DDE4;
   height: 50px;
   padding: 15px;
-  color: white;
+  color: gray;
 }
 
 .interest-title {
@@ -15,8 +15,8 @@
 
 .money-button {
   margin: 5px;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   text-align: center;
 }
 
@@ -26,10 +26,15 @@
 
 .hammer-button {
   margin: 5px;
+  height: 100px;
   text-align: center;
 }
 .hammer-button:focus {
   outline:none !important;
+}
+
+#hammerImg {
+  height: 80px;
 }
 
 .piggy-div {
@@ -58,5 +63,21 @@
   float: left;
   margin-top: -35px;
   margin-left: 10px;
-  color: whitesmoke;
+  color: gray;
+}
+
+#pig {
+  width: 100%;
+}
+
+#pigButton {
+  height: 100%;
+}
+
+#dedPig {
+  width: 100%;
+}
+
+#money {
+  width: 100%;
 }

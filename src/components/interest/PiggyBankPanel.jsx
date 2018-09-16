@@ -5,6 +5,8 @@ import { getMoneyIndexValue } from './MoneyButtonPanel';
 import { PARENT_CHEQUING_ID, CHILD_CHEQUING_ID } from '../../App.jsx';
 import { transferFunds } from '../../financialinformation';
 import './interest.css';
+import ded_pig from '../../public/ded-pig.png';
+import pig from '../../public/pig.png';
 
 export class PiggyBankPanel extends React.Component {
 
@@ -44,8 +46,9 @@ export class PiggyBankPanel extends React.Component {
         const piggyBankData = this.props.piggyBanks[piggyId];
 
         const displayContent = (piggyBankData.isDead)
-            ? <div>I'm ded.</div>
+            ? <div><img id="dedPig" src={ded_pig}></img></div>
             : <div>
+                <img id="pig" src={pig}></img><br />
                 <b>{piggyId}</b> <br />
                 Interest Rate: {(piggyBankData.interestRate * 100).toFixed(2)}% <br />
                 Period: {parseInt(piggyBankData.period, 10)} days<br />
@@ -54,6 +57,7 @@ export class PiggyBankPanel extends React.Component {
 
         return (
             <Button
+                id="pigButton"
                 key={piggyId}
                 className="piggy-button"
                 onClick={() => { this.handleClick(piggyId) }}
