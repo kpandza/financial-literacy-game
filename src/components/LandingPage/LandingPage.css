@@ -1,0 +1,24 @@
+body {
+
+  background-image: url('home-background.png');
+  background-size: 107%;
+  
+}
+
+img.logo {
+  margin-top: 195px;
+  width: 400px;
+
+}
+
+img.settings-logo {
+  position: absolute; 
+  width: 80px;
+  height: auto;
+  right: 25px;
+  top: 15px;
+}
+
+button {
+  margin-top: 30px !important;
+}
