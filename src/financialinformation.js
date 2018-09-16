@@ -41,7 +41,7 @@ transferFunds: function(fromAccount, toAccount, amount)
         "amount": amount,
         "currency": "CAD",
         "fromAccountID": fromAccount,
-        "receipt": "{ \"reason\": \"My half of the lunch bill\"}",
+        "receipt": "{ \"description\": \"From KidKoin\"}",
         "toAccountID": toAccount
     }
 

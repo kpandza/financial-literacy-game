@@ -26,6 +26,7 @@ export class InterestGame extends React.Component {
         let updatedData = this.props.piggyBanks;
 
         Object.keys(updatedData).forEach(piggyId => { // Handle Interest
+            updatedData[piggyId].isDead = false;
             if (updatedTime % updatedData[piggyId].period === 0) {
                 updatedData[piggyId].moneySaved = updatedData[piggyId].moneySaved*(1+updatedData[piggyId].interestRate);
             }

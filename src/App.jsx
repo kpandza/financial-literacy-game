@@ -1,6 +1,12 @@
 import React from 'react';
 import './App.css';
 import { InterestGame } from './components/interest/InterestGame';
+import { } from './financialinformation';
+
+export const PARENT_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_8e095a60-87e4-41f6-8b14-01ac0390c410";
+export const PARENT_CHEQUING_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_f4bb3031-3b87-4884-9a70-066690c87c67"
+export const CHILD_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_085b9b2e-db56-42d1-b01e-c9a43c7061d9";
+export const CHILD_CHEQUING_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_294ce541-4ab3-4fae-aadf-beafa71804c9";
 
 const defaultPiggyBanks = {
   "Piggy Bank 1": { "interestRate": 0.05, "period": 5, "moneySaved": 0, "isDead": false },

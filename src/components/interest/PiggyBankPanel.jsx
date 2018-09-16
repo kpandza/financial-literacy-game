@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { getMoneyIndexValue } from './MoneyButtonPanel';
+import { PARENT_CHEQUING_ID, CHILD_CHEQUING_ID } from '../../App';
+import { transferFunds } from '../../financialinformation';
 import './interest.css';
 
 export class PiggyBankPanel extends React.Component {
@@ -16,7 +18,9 @@ export class PiggyBankPanel extends React.Component {
         let updatedData = this.props.piggyBanks;
         if (this.props.isHammerEnabled) { // WITHDRAWAL
             updatedData[piggyId].isDead = true;
-            // TODO: Add money to child account + withdraw from parent
+            transferFunds(PARENT_CHEQUING_ID, CHILD_CHEQUING_ID, updatedData[piggyId].moneySaved);
+
+            updatedData[piggyId].moneySaved = 0;
         }
         else { // DEPOSIT
             const transactionAmount = getMoneyIndexValue(this.props.selectedMoneyIndex);
