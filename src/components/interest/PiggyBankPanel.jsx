@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { getMoneyIndexValue } from './MoneyButtonPanel';
-import { PARENT_CHEQUING_ID, CHILD_CHEQUING_ID } from '../../App';
+import { PARENT_CHEQUING_ID, CHILD_CHEQUING_ID } from '../../App.jsx';
 import { transferFunds } from '../../financialinformation';
 import './interest.css';
 
@@ -27,8 +27,6 @@ export class PiggyBankPanel extends React.Component {
 
             updatedData[piggyId].moneySaved += transactionAmount; // Add Money
             this.props.setAvailableFunds(this.props.availableFunds - transactionAmount); // Deduct Money
-
-            console.log(transactionAmount);
         }
 
         this.props.updatePiggyBank(updatedData);

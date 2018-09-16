@@ -4,6 +4,7 @@ import { Button, Glyphicon } from 'react-bootstrap';
 import { MoneyButtonPanel } from './MoneyButtonPanel';
 import { PiggyBankPanel } from './PiggyBankPanel';
 import './interest.css';
+import { Link } from 'react-router-dom';
 
 export class InterestGame extends React.Component {
 
@@ -52,7 +53,7 @@ export class InterestGame extends React.Component {
                     <Glyphicon glyph="forward" />
                 </Button>
 
-                <span className="time-label">Day: {this.props.time + 1}</span>
+                <Link to="/dashboard"><span className="time-label">Day: {this.props.time + 1}</span></Link>
 
                 <MoneyButtonPanel
                     availableFunds={this.props.availableFunds}

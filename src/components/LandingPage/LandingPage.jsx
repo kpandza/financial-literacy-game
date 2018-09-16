@@ -1,7 +1,8 @@
 import React from 'react';
 import './LandingPage.css';
-import Logo from './kid-koin-logo.png'
-import SettingsLogo from './settings-logo.png'
+import Logo from './kid-koin-logo.png';
+import SettingsLogo from './settings-logo.png';
+import { Link } from 'react-router-dom';
 export class LandingPage extends React.Component {
 
     constructor(props) {
@@ -14,7 +15,7 @@ export class LandingPage extends React.Component {
 
     render() {
         return (
-            <div class="container">
+            <div className="landing-page">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
             <div class="row">
                 <div class="col-12 col-sm-12 "> 
@@ -28,7 +29,7 @@ export class LandingPage extends React.Component {
             </div>
             <div class="row">
                 <div class="col-12 text-center"> 
-                <button>hi</button>
+                <Link to="/dashboard"><button className="landing-button">hi</button></Link>
                  </div>
             </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>

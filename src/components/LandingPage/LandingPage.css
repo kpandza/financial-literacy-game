@@ -1,8 +1,7 @@
-body {
-
+.landing-page {
   background-image: url('home-background.png');
-  background-size: 107%;
-  
+  background-size: 108%;
+  height: 100vh;
 }
 
 img.logo {
@@ -19,6 +18,6 @@ img.settings-logo {
   top: 15px;
 }
 
-button {
+.landing-button {
   margin-top: 30px !important;
 }

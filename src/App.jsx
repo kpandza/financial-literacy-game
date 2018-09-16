@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { InterestGame } from './components/interest/InterestGame';
-import { } from './financialinformation';
+import { LandingPage } from './components/LandingPage/LandingPage';
+import { Dashboard } from './components/main/Dashboard';
 
 export const PARENT_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_8e095a60-87e4-41f6-8b14-01ac0390c410";
 export const PARENT_CHEQUING_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_f4bb3031-3b87-4884-9a70-066690c87c67"
@@ -10,8 +12,8 @@ export const CHILD_CHEQUING_ID = "5e524cd4-be8f-4c27-a9e8-6a0f288719e8_294ce541-
 
 const defaultPiggyBanks = {
   "Piggy Bank 1": { "interestRate": 0.05, "period": 5, "moneySaved": 0, "isDead": false },
-  "Piggy Bank 2": { "interestRate": 0.06, "period": 6, "moneySaved": 0, "isDead": false },
-  "Piggy Bank 3": { "interestRate": 0.07, "period": 7, "moneySaved": 0, "isDead": false },
+  "Piggy Bank 2": { "interestRate": 0.07, "period": 7, "moneySaved": 0, "isDead": false },
+  "Piggy Bank 3": { "interestRate": 0.15, "period": 15, "moneySaved": 0, "isDead": false },
 };
 
 class App extends React.Component {
@@ -45,24 +47,48 @@ class App extends React.Component {
   }
 
   render() {
-
-    let displayContent = this.state.loading
-      ? <div>Loading...</div>
-      : <div className="App">
-        <InterestGame
-          startingFunds={this.state.startingFunds}
-          availableFunds={this.state.availableFunds}
-          setAvailableFunds={this.setAvailableFunds}
-          piggyBanks={this.state.piggyBanks}
-          updatePiggyBank={this.updatePiggyBank}
-          time={this.state.time}
-          setTime={this.setTime}
-          maximumWithdrawalAmount={this.state.maximumWithdrawalAmount}
-        />
-      </div>;
-
-    return displayContent;
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/interest" render={(props) =>
+              <InterestGame
+                startingFunds={this.state.startingFunds}
+                availableFunds={this.state.availableFunds}
+                setAvailableFunds={this.setAvailableFunds}
+                piggyBanks={this.state.piggyBanks}
+                updatePiggyBank={this.updatePiggyBank}
+                time={this.state.time}
+                setTime={this.setTime}
+                maximumWithdrawalAmount={this.state.maximumWithdrawalAmount}
+              />} />
+          </Switch>
+        </div>
+      </Router>
+    );
   }
+
+  // render() {
+  //   console.log(defaultPiggyBanks)
+  //   let displayContent = this.state.loading
+  //     ? <div className="kidkoin">Loading...</div>
+  //     : <div className="kidkoin">
+  //       <InterestGame
+  //         startingFunds={this.state.startingFunds}
+  //         availableFunds={this.state.availableFunds}
+  //         setAvailableFunds={this.setAvailableFunds}
+  //         piggyBanks={this.state.piggyBanks}
+  //         updatePiggyBank={this.updatePiggyBank}
+  //         time={this.state.time}
+  //         setTime={this.setTime}
+  //         maximumWithdrawalAmount={this.state.maximumWithdrawalAmount}
+  //       />
+  //     </div>;
+
+  //   return displayContent;
+  // }
 
   setStartingFunds(amount) {
     this.setState({ startingFunds: amount });
