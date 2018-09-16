@@ -1,7 +1,7 @@
 body {
 
   background-image: url('home-background.png');
-  background-size: 107%;
+  background-size: 105%;
   
 }
 
@@ -11,14 +11,44 @@ img.logo {
 
 }
 
-img.settings-logo {
-  position: absolute; 
-  width: 80px;
-  height: auto;
-  right: 25px;
-  top: 15px;
+button.settings-logo {
+
+  right: 15px !important;
+  background: transparent !important;
+  background-image: url('settings-logo.png') !important;
+  background-size: 105% !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: none !important;
+
 }
 
 button {
   margin-top: 30px !important;
+}
+
+button.btn-primary {
+  width: 170px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.settings-logo {
+  position: absolute !important; 
+  right: 20px !important;
+}
+
+input {
+width: 250px !important;
+margin-top: 15px !important;
+}
+
+button.footer {
+  position: relative; 
+  left: 50%;
+}
+
+.landingfooter {
+  display: flex !important;
+  justify-content: center !important;
 }
