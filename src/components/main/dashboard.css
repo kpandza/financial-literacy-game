@@ -1,0 +1,30 @@
+html, body {
+    background-image: url('./roomimage.png');
+    background-repeat: repeat !important;
+  }
+
+#shelfimage {
+    width: 100%;
+    padding-right: 25px;
+    padding-left: 40px;
+}
+
+#header {
+    padding: 10px;
+    width: 100%;
+}
+
+#extra-padding{
+    padding-top: 10px;
+
+}
+
+.img-thumbnail {
+    border: none !important;
+}
+
+#plantheight {
+    height: 180px;
+
+}
+
