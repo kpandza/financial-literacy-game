@@ -12,7 +12,9 @@ export class LandingPage extends React.Component {
             maximumValue:'',
             startingFunds: ''
         };
-        this.handleChange = this.handleChange.bind(this);
+
+        this.handleStartFundChange = this.handleStartFundChange.bind(this);
+        this.handleWithdrawChange = this.handleWithdrawChange.bind(this);
         this.toggleClose = this.toggleClose.bind(this);
         this.toggleOpen = this.toggleOpen.bind(this);
     }
@@ -25,11 +27,19 @@ export class LandingPage extends React.Component {
         this.setState({ modalOpen: true });
       }
 
-      handleChange(event) {
-        this.setState({[event.target.id]: event.target.value});
+      handleWithdrawChange(event) {
+        this.setState({maximumValue: event.target.value});
+        this.props.setMaximumWithdrawalAmount(Number(event.target.value));
+        console.log(this.state.maximumValue);      
+      }
+
+      handleStartFundChange(event) {
+        this.setState({startingFunds: event.target.value});
+        this.props.setStartingFunds(Number(event.target.value));
         console.log(this.state.maximumValue)
        
       }
+
     render() {
         return (
             <div className="landing-page">
@@ -64,9 +74,9 @@ export class LandingPage extends React.Component {
           </Modal.Header>
           <Modal.Body>
           <div class="input-info">
-           <input type="number" placeholder="Maximum Withdraw Value" id="maximumValue"  value={this.state.maximumValue} onChange={this.handleChange}/>
+           <input type="number" placeholder="Maximum Withdraw Value" id="maximumValue"  value={this.state.maximumValue} onChange={this.handleWithdrawChange}/>
            <br />
-           <input type="number" placeholder="Starting funds"  value={this.state.startingFunds} id="startingFunds" onChange={this.handleChange}/>
+           <input type="number" placeholder="Starting funds"  value={this.state.startingFunds} id="startingFunds" onChange={this.handleStartFundChange}/>
            </div>
           </Modal.Body>
           <div class="landingfooter">
