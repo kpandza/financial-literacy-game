@@ -51,7 +51,11 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/"  render={(props) =>
+              <LandingPage
+                setStartingFunds={this.setStartingFunds}
+                setMaximumWithdrawalAmount={this.setMaximumWithdrawalAmount}
+              />} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/interest" render={(props) =>
               <InterestGame
@@ -69,26 +73,6 @@ class App extends React.Component {
       </Router>
     );
   }
-
-  // render() {
-  //   console.log(defaultPiggyBanks)
-  //   let displayContent = this.state.loading
-  //     ? <div className="kidkoin">Loading...</div>
-  //     : <div className="kidkoin">
-  //       <InterestGame
-  //         startingFunds={this.state.startingFunds}
-  //         availableFunds={this.state.availableFunds}
-  //         setAvailableFunds={this.setAvailableFunds}
-  //         piggyBanks={this.state.piggyBanks}
-  //         updatePiggyBank={this.updatePiggyBank}
-  //         time={this.state.time}
-  //         setTime={this.setTime}
-  //         maximumWithdrawalAmount={this.state.maximumWithdrawalAmount}
-  //       />
-  //     </div>;
-
-  //   return displayContent;
-  // }
 
   setStartingFunds(amount) {
     this.setState({ startingFunds: amount });
