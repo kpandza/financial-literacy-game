@@ -41,3 +41,22 @@
   height: 200px;
   margin: 20px;
 }
+
+.time-button {
+  float: right;
+  margin-top: -41px;
+  margin-right: 10px;
+}
+
+.time-button {
+  float: right;
+  margin-top: -41px;
+  margin-right: 10px;
+}
+
+.time-label {
+  float: left;
+  margin-top: -35px;
+  margin-left: 10px;
+  color: whitesmoke;
+}

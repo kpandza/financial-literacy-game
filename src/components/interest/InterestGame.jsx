@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, Glyphicon } from 'react-bootstrap';
 import { MoneyButtonPanel } from './MoneyButtonPanel';
 import { PiggyBankPanel } from './PiggyBankPanel';
 import './interest.css';
@@ -15,6 +16,24 @@ export class InterestGame extends React.Component {
 
         this.setSelectedMoneyIndex = this.setSelectedMoneyIndex.bind(this);
         this.setHammerStatus = this.setHammerStatus.bind(this);
+        this.handleFastForward = this.handleFastForward.bind(this);
+    }
+
+    handleFastForward() {
+        const updatedTime = this.props.time + 1;
+        this.props.setTime(updatedTime); // Increment Time
+
+        let updatedData = this.props.piggyBanks;
+
+        Object.keys(updatedData).forEach(piggyId => { // Handle Interest
+            if (updatedTime % updatedData[piggyId].period === 0) {
+                updatedData[piggyId].moneySaved = updatedData[piggyId].moneySaved*(1+updatedData[piggyId].interestRate);
+            }
+        });
+
+        this.props.updatePiggyBank(updatedData); 
+
+        this.props.setAvailableFunds(this.props.startingFunds);
     }
 
     render() {
@@ -24,6 +43,15 @@ export class InterestGame extends React.Component {
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous"></link>
                     Available Funds: {(this.props.availableFunds).toFixed(2)}
                 </header>
+
+                <Button
+                    className="time-button"
+                    onClick={this.handleFastForward}
+                >
+                    <Glyphicon glyph="forward" />
+                </Button>
+
+                <span className="time-label">Day: {this.props.time + 1}</span>
 
                 <MoneyButtonPanel
                     availableFunds={this.props.availableFunds}
@@ -56,9 +84,13 @@ export class InterestGame extends React.Component {
 }
 
 InterestGame.propTypes = {
+    startingFunds: PropTypes.number.isRequired,
     availableFunds: PropTypes.number.isRequired,
     setAvailableFunds: PropTypes.func.isRequired,
     piggyBanks: PropTypes.object.isRequired,
     updatePiggyBank: PropTypes.func.isRequired,
+    time: PropTypes.number.isRequired,
+    setTime: PropTypes.func.isRequired,
+    maximumWithdrawalAmount: PropTypes.number.isRequired,
 }
 

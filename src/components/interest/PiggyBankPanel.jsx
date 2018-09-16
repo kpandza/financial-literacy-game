@@ -23,6 +23,8 @@ export class PiggyBankPanel extends React.Component {
 
             updatedData[piggyId].moneySaved += transactionAmount; // Add Money
             this.props.setAvailableFunds(this.props.availableFunds - transactionAmount); // Deduct Money
+
+            console.log(transactionAmount);
         }
 
         this.props.updatePiggyBank(updatedData);
@@ -44,7 +46,7 @@ export class PiggyBankPanel extends React.Component {
             : <div>
                 <b>{piggyId}</b> <br />
                 Interest Rate: {(piggyBankData.interestRate * 100).toFixed(2)}% <br />
-                Period: {parseInt(piggyBankData.period, 10)} <br />
+                Period: {parseInt(piggyBankData.period, 10)} days<br />
                 Money Saved: ${(piggyBankData.moneySaved).toFixed(2)}
             </div>;
 
